@@ -1,0 +1,19 @@
+---
+export interface Props {
+  url: string;
+  title: string;
+  content?: string;
+}
+const {url, title, content}: Props = Astro.props;
+---
+
+<li>
+  <a href={url}>{title}</a>
+  {
+    content && (
+      <div style="display: flex; flex-wrap: wrap;">
+        {`${content.substring(0, 100)}...`}
+      </div>
+    )
+  }
+</li>
